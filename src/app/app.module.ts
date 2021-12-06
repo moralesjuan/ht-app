@@ -1,28 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { LeagueComponent } from './leagues/league/league.component';
-import { LeagueModule } from './leagues/league.module';
+import { LeaguesModule } from './leagues/leagues.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule,  
-    LeagueModule,
-    RouterModule.forRoot([  
-      { 
-        path: '', 
-        component: AppComponent 
-      },  
-      {   
-        path: 'league',          
-        component: LeagueComponent,
-      }  
-    ])
+    BrowserModule,
+    AppRoutingModule,  
+    LeaguesModule,
+    HttpClientModule
   ],
   exports:[],
   providers: [],

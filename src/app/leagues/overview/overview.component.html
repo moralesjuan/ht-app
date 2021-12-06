@@ -1,0 +1,55 @@
+<div class="container align-items-center" >
+    <div class="card shadow mb-4">
+        <span class="h3 py-3 px-3">Overview page</span>
+    </div>
+</div>
+<div class="container align-items-center" >
+    <div class="row">
+        <div class="col-6">
+            <div class="card shadow mb-4" style="height: 500px">
+                <div class="card-header py-3">
+                    <span class="h4 text-success">Leagues</span>
+                </div>
+                <div class="p-3 table-responsive">
+                    <table class="table">
+                        <thead class="table table-secondary table-hover">
+                            <tr>
+                                <th>League</th>
+                                <th>Level</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let league of leagues">
+                                <td><a class="link-success" [routerLink]="['/leagues', league.leagueId]">{{league.series}}</a></td>
+                                <td>{{league.level}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card shadow mb-4" style="height: 500px">
+                <div class="card-header py-3">
+                    <span class="h4 text-success">Cups</span>
+                </div>
+                <div class="container py-3 d-grid gap-2">
+                    <button class="btn btn-success" type="button" routerLink="addcup">Create a new cup</button>
+                </div>
+                <hr>
+                <div class="container py-2 overflow-auto">
+                    <span class="h5 my-3"> Current cups</span>
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item d-flex justify-content-between align-items-start my-1" *ngFor="let cup of cups">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold"><a [routerLink]="['/cups', cup.cupId]" class="link-dark">{{ cup.name }}</a></div>
+                            {{cup.type}}
+                        </div>
+                        <span class="badge bg-success rounded-pill">{{cup.size}} Teams</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>

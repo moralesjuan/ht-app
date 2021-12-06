@@ -1,0 +1,63 @@
+
+
+
+<div class="container align-items-center" >
+    <div class="card shadow mb-4">
+        <div class="h3 py-3 px-3">Leagues page</div>
+    </div>
+</div>
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-header py-2">
+            <ng-container *ngIf="!league; else divLeague">
+                <div class="alert alert-info">Loading...</div>    
+            </ng-container>
+            <ng-template #divLeague>
+                <div class="row">
+                    <div class="col">
+                        <span class="h4 m-0 font-weight-bold me-3">Level: <small class="text-success">{{league.level}}</small> </span> 
+                        <button type="button" class="btn btn-sm btn-light" (click)="moveLevel(-1)" ><i class="bi bi-caret-up-fill"></i></button>
+                        <button type="button" class="btn btn-sm btn-light" (click)="moveLevel(1)" ><i class="bi bi-caret-down-fill"></i></button>        
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <span class="h4 m-0 font-weight-bold me-3">Serie: <small class="text-success">{{league.series}}</small> </span> 
+                        <button type="button" class="btn btn-sm btn-light" (click)="moveSerie(-1)"><i class="bi bi-caret-left-fill"></i></button>
+                        <button type="button" class="btn btn-sm btn-light" (click)="moveSerie(1)"><i class="bi bi-caret-right-fill"></i></button>        
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+        <ng-container *ngIf="!leagueDetails; else divTable">
+            <div class="alert alert-info">Loading...</div>
+        </ng-container>
+        <ng-template #divTable>
+            <div class="p-3 table-responsive">
+                <table class="table">
+                    <thead class="table-success">
+                        <tr>
+                            <th>Team</th>
+                            <th>Games</th>
+                            <th>Points</th>
+                            <th>For</th>
+                            <th>Against</th>
+                            <th>Difference</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let team of leagueDetails">
+                            <td>{{team.team.name}}</td>
+                            <td>{{team.games}}</td>
+                            <td>{{team.points}}</td>
+                            <td>{{team.for}}</td>
+                            <td>{{team.against}}</td>
+                            <td>{{team.difference}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </ng-template>
+    </div>
+</div>
