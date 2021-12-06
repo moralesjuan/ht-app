@@ -1,1 +1,29 @@
-<p>cups works!</p>
+<div class="container align-items-center" >
+    <div class="card shadow mb-4">
+        <div class="h3 py-3 px-3">Cups</div>
+    </div>
+</div>
+<ng-container *ngIf="!cupDetails[0]; else elseTemplate">
+    <div class="alert alert-info">Loading...</div>
+</ng-container>
+<ng-template #elseTemplate>
+    <div class="container">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <span class="h5 text-success">{{cupDetails[0].cupName}}</span>
+            </div>
+            <div class="py-3 px-3">
+            <span class="h5 text">Round: {{cupDetails[0].round}}</span>
+            </div>
+            <hr>
+            <div class="container py-2 overflow-auto">
+                <ul class="list-group list-group-horizontal" *ngFor="let detail of cupDetails">
+                    <li class="list-group-item w-25"><b>{{detail.local}}</b> ({{detail.rankingLocal}})  </li>
+                    <li class="list-group-item w-10">vs</li>
+                    <li class="list-group-item w-25"><b>{{detail.visitor}}</b> ({{detail.rankingVisitor}}) </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</ng-template>

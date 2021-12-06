@@ -1,1 +1,55 @@
-<p>add-cup works!</p>
+<div class="container align-items-center" >
+    <div class="card shadow mb-4">
+        <div class="h3 py-3 px-3">Add New Cup</div>
+    </div>
+</div>
+<div class="container">
+    <div class="card shadow mb-4">
+        <form autocomplete="off">
+            <div class="row py-4 px-4">
+                <div class="col-4">
+                    Name:
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-award"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Cup Name" name="cupName" [(ngModel)]="cupName">
+                    </div>
+                </div>
+                <div class="col-4">
+                    Size:
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
+                        </div>
+                        <select class="custom-select w-75" id="inputGroupSelect01" name="cupSize" [(ngModel)]="cupSize">
+                            <option selected value="2">2</option>
+                            <option value="4">4</option>
+                            <option value="8">8</option>
+                            <option value="16">16</option>
+                            <option value="32">32</option>
+                            <option value="64">64</option>
+                            <option value="128">128</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-4">
+                    Type:
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-diagram-3"></i></span>
+                        </div>
+                        <select class="custom-select w-75" id="inputGroupSelect01" name="cupType" [(ngModel)]="cupType">
+                            <option selected value="HighLow">High Low</option>
+                            <option value="HighLowRandom">High Low Random</option>
+                            <option value="Random">Random</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="container py-3 px-4 d-grid gap-2">
+            <button class="btn btn-success" type="button" (click)="createCup()" >Create cup</button>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { LeaguesComponent } from './leagues/leagues.component';
 import { OverviewComponent } from './overview/overview.component';
@@ -22,7 +23,8 @@ import { AddCupComponent } from './cups/add-cup/add-cup.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ]
 })
 export class LeaguesModule { }
